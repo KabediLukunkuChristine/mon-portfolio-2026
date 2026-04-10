@@ -333,125 +333,217 @@ footer a:hover {
     text-decoration: none;
 }
 
-/* --- SECTION PROJETS --- */
-
-.projets {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.projets h2 {
+/*-----style projets----*/
+.projets-header h2 {
+     color: var(--violet-doux);
+    font-size: 2.6rem;
+    font-weight: 700;
+    position: relative;
     text-align: center;
-    color: var(--violet-doux);
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
 }
 
 .line {
-    width: 80px;
+    width: 60px;
     height: 4px;
     background-color: var(--violet-doux);
-    margin: 0 auto 3rem auto;
+    margin: 0 auto;
     border-radius: 2px;
 }
 
-/* Grille des projets */
-.projets main {
+/* Grille */
+.projets-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.5rem;
 }
 
-/* Carte de projet individuelle */
-.projets main > div {
+/* Cartes */
+.projet-card {
     background-color: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 
-.projets main > div:hover {
-    transform: translateY(-10px);
+.projet-card:hover {
+    transform: translateY(-3px);
 }
 
-.projets img[width="300"] {
+.projet-card img{
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-/* Contenu textuel de la carte */
-.projets main > div > div {
+.projet-links img {
+    width: 100%;
+    height: 20px;
+    object-fit: cover;
+}
+
+.projet-content {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.projets h3 {
+.projet-content h3 {
     color: var(--violet-doux);
     font-size: 1.4rem;
     margin-bottom: 0.8rem;
 }
 
-.projets p {
+.projet-content p {
     color: var(--gris-fonce);
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.95rem;
     margin-bottom: 1.5rem;
     flex-grow: 1;
 }
 
-/* Tags (HTML, CSS, etc.) */
-.tags, .projets main > div > div > div:nth-child(3) {
+/* Tags */
+.tags {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
 }
 
-.tags span, .projets main > div > div > div:nth-child(3) span {
-    background-color: var(--gris-tres-clair);
+.tags span {
+    background-color: #f0f0ff;
     color: var(--violet-doux);
-    padding: 4px 12px;
+    padding: 5px 12px;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    border: 1px solid var(--gris-clair);
 }
 
-/* Boutons Code et Demo */
-.button, .projets main > div > div > div:last-child {
+/* Liens Bas de Carte */
+.projet-links {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1.5rem;
-    border-top: 1px solid var(--gris-clair);
+    border-top: 1px solid #eee;
     padding-top: 1rem;
 }
 
-.projets a {
+.projet-links a, .status {
     text-decoration: none;
     color: var(--gris-tres-fonce);
     font-weight: 600;
     font-size: 0.9rem;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
 }
 
-.projets a:hover {
+.projet-links a:hover {
     color: var(--violet-doux);
 }
 
-.projets .button img, .projets main > div > div > div:last-child img {
-    border-radius: 4px;
-    transition: opacity 0.3s;
+/* --- Ajustements pour les images dans les Passions --- */
+
+.section h2 {
+     color: var(--violet-doux);
+    font-size: 2.6rem;
+    font-weight: 700;
+    position: relative;
+    text-align: center;
+}    
+
+.passion-image-container {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.projets .button img:hover {
-    opacity: 0.8;
+.passion-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Garde les proportions du logo sans le déformer */
+    transition: transform 0.3s ease;
+}
+
+.passion-card:hover .passion-img {
+    transform: scale(1.1); /* Petit effet de zoom sur l'image au survol */
+}
+
+/* On s'assure que la grille reste bien en 3 colonnes sur PC */
+@media (min-width: 1024px) {
+    .passions-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+    }
+}
+
+/* Style de base de la carte */
+.passion-card {
+    background: white;
+    padding: 2.5rem 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 5px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.passion-card h3 {
+    color: var(--violet-doux);
+    margin-bottom: 1rem;
+}
+
+/* --- Styles pour la page Divertissement --- */
+
+section h2 {
+    color: var(--violet-doux);
+    font-size: 2.6rem;
+    font-weight: 700;
+    position: relative;
+    text-align: center;
+}
+
+.divertissement-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Réutilisation de la structure de grille sur PC  */
+@media (min-width: 1024px) {
+    .divertissement-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+    }
+}
+
+/* Animation douce pour les cartes de divertissement au survol */
+.divertissement-grid .passion-card:hover {
+    border-top: 5px solid var(--violet-doux);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* Ajustement spécifique pour les images de divertissement si nécessaire */
+.divertissement-grid .passion-img {
+    filter: grayscale(20%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.divertissement-grid .passion-card:hover .passion-img {
+    filter: grayscale(0%);
 }
